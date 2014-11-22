@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-namespace AB\Validator;
+namespace AB\ValidatorLibrary;
 
 /**
  * Class IntegerValidator

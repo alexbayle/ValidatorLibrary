@@ -29,9 +29,9 @@ class BooleanValidator
         if(!is_bool($boolean)) {
             throw new \Exception('The parameter must be a boolean!');
         }
-        if($boolean) {
+        if( filter_var($boolean, FILTER_VALIDATE_BOOLEAN) ) {
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -49,9 +49,9 @@ class BooleanValidator
         if(!is_bool($boolean)) {
             throw new \Exception('The parameter must be a boolean!');
         }
-        if(!$boolean) {
+        if( !filter_var($boolean, FILTER_VALIDATE_BOOLEAN, [ 'flags' => FILTER_NULL_ON_FAILURE]) ) {
             return true;
-        }else {
+        }else{
             return false;
         }
     }

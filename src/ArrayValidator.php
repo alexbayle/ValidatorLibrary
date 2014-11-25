@@ -51,10 +51,10 @@ class ArrayValidator
      */
     public static function isCompare($array,$compare,$integer)
     {
-        if((!is_array($array)) || is_int($integer)) {
+        /*if((!is_array($array)) || is_int($integer)) {
             throw new \Exception('The parameter must be an array and a int !');
-        }
-        if(false === in_array($compare,
+        }*/
+        if(!in_array($compare,
                 [
                     self::OPE_EQUAL,
                     self::OPE_SUPERIOR,

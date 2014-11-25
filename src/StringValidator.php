@@ -106,9 +106,9 @@ class StringValidator {
         if (!is_string($string)) {
             throw new \Exception('$string must be a string!');
         }
-        $noSpace = trim($string);
-
-        if($noSpace != $string) {
+        $firstChar = substr($string, 0, 1);
+        $lastChar = substr($string, -1);
+        if (!ctype_space($firstChar) && !ctype_space($lastChar)) {
             return true;
         }else {
             return false;
@@ -127,9 +127,7 @@ class StringValidator {
         if (!is_string($string)) {
             throw new \Exception('$string must be a string!');
         }
-        $whiteSpace = explode(' ',$string);
-
-        if(count($whiteSpace) > 2) {
+        if (strpos($string, ' ') == false) {
             return true;
         }else {
             return false;

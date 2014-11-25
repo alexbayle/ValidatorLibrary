@@ -9,11 +9,15 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-$test = true;
+//$test = false;
 
-$validation = \AB\ValidatorLibrary\BooleanValidator::isTrue($test);
-var_dump($validation);
+//$validation = \AB\ValidatorLibrary\BooleanValidator::isTrue($test);
+//var_dump($validation);
 
 
 //$validation1 = \AB\ValidatorLibrary\IntegerValidator::equal(5,5);
 //var_dump($validation1);
+$array = [0,1,2];
+$validation = \AB\ValidatorLibrary\ArrayValidator::inferiorItems($array,3);
+
+var_dump($validation);

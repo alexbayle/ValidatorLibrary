@@ -16,28 +16,42 @@ namespace AB\ValidatorLibrary;
  */
 class BooleanValidator
 {
-    /**
-     * @param $boolean
-     * @return bool
-     */
-    public static function isTrue($boolean) {
 
-        if(filter_var($boolean, FILTER_VALIDATE_BOOLEAN)) {
+    /**
+     * @param bool $boolean
+     *
+     * @return bool
+     *
+     * @throws \Exception
+     */
+    public static function isTrue($boolean)
+    {
+        if(!is_bool($boolean)) {
+            throw new \Exception('The parameter must be a boolean!');
+        }
+        if($boolean) {
             return true;
-        }else{
-         return false;
+        }else {
+            return false;
         }
     }
 
-    /**
-     * @param $boolean
-     * @return bool
-     */
-    public static function isFalse($boolean) {
 
-        if(!filter_var($boolean, FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_NULL_ON_FAILURE])) {
+    /**
+     * @param bool $boolean
+     *
+     * @return bool
+     *
+     * @throws \Exception
+     */
+    public static function isFalse($boolean)
+    {
+        if(!is_bool($boolean)) {
+            throw new \Exception('The parameter must be a boolean!');
+        }
+        if(!$boolean) {
             return true;
-        }else{
+        }else {
             return false;
         }
     }

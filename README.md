@@ -126,7 +126,7 @@ $validation = \AB\ValidatorLibrary\ArrayValidator::valueExists($array, $value);
 ```
 
 ***********************************************
-#### BooleanValidator
+#### DateTimeValidator
 ***********************************************
 List of BooleanValidator methods :
   - isYear()

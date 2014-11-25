@@ -101,7 +101,7 @@ class ArrayValidator
         if(!is_array($array) || !is_int($min) || !is_int($max)) {
             throw new \Exception('$array must be an array, $min and max must be an int !');
         }
-        if((count($array) > $min) && (count($array) < $max)) {
+        if((count($array) >= $min) && (count($array) <= $max)) {
             return true;
         } else {
             return false;
@@ -116,11 +116,8 @@ class ArrayValidator
      *
      * @throws \Exception
      */
-    public static function keyExists($key,$array)
+    public static function keyExists($array,$key)
     {
-        if(!is_array($array)) {
-            throw new \Exception('$array must be an array !');
-        }
         if(array_key_exists($key,$array)) {
             return true;
         }else {
@@ -136,11 +133,8 @@ class ArrayValidator
      *
      * @throws \Exception
      */
-    public static function valueExists($value,$array)
+    public static function valueExists($array,$value)
     {
-        if(!is_array($array)) {
-            throw new \Exception('$array must be an array !');
-        }
         if(in_array($value,$array)) {
             return true;
         }else {

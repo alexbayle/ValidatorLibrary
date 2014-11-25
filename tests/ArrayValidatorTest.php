@@ -22,28 +22,40 @@ class ArrayValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($res);
     }
 
-  /*  public function testIsCompare()
+    public function testIsEqual()
     {
-        $array = array('hello');
-        $integer = 5;
+        $array = array('Hello => 3');
+        $integer = 1;
 
         $res = ArrayValidator::isCompare($array, ArrayValidator::OPE_EQUAL, $integer);
 
         $this->assertTrue($res);
-    }*/
+    }
 
     public function testBetweenItems()
     {
-       //hello
+        $array = array('Hello' => 3, 'Bye' => 10);
+
+        $bool = ArrayValidator::betweenItems($array, 1, 2);
+
+        $this->assertTrue($bool);
     }
 
     public function testKeyExists()
     {
+        $array = array('Hello' => 2);
 
+        $bool = ArrayValidator::keyExists($array,'Hello');
+
+        $this->assertTrue($bool);
     }
 
     public function testValueExists()
     {
+        $array = array('Hello' => 2);
 
+        $bool = ArrayValidator::valueExists($array, '2');
+
+        $this->assertTrue($bool);
     }
 }
